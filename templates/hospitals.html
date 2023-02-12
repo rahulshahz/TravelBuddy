@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hospitals</title>
+    <style>
+        
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            background-color: black;
+            color:white;
+            border-radius: 20px;
+            padding:10px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        .d{
+            border: 2px solid black;
+            border-radius:20px;
+            text-align: center;
+            width:40%;
+            background: rgba(255,255,255,0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 3%;
+            box-shadow: 0 0 30px black;
+
+        }
+        p{
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            padding:10px;
+            word-wrap: break-word;
+        }
+        body {
+  padding: 4.5rem;
+  margin: 0;
+  background: #edc0bf;
+  background: linear-gradient(90deg, #edc0bf 0,#c4caef 58%);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.key{
+    text-transform: uppercase;
+}
+.d2{
+    background-color: white;
+    border-radius: 20px;
+}
+@media screen and (max-width:700px) {
+            .d{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% for x in info %}
+    <div class="d">
+        {% for key, val in x.items() %}
+            {% if key == "image" %}
+                
+            
+            {% elif key!="rating" %}
+            <div class="d2">
+                <h1 class="key">{{key}}:</h1>
+                <p>{{val}}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+        <hr>
+    {% endfor %}
+
+</body>
+
+</html>

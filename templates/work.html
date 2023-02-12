@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Buddy</title>
+  <link rel="stylesheet" href="/static/work_style.css">
+
+</head>
+
+<body>
+<!-- partial:index.partial.html -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'><link rel="stylesheet" href="static/work_style.css">
+    <title>Travel Buddy</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+    
+    <script src="https://js.arcgis.com/4.22/"></script>
+    
+
+    <script>
+      require([
+          "esri/config",
+          "esri/Map",
+          "esri/views/MapView",
+          "esri/widgets/Locate",
+
+          "esri/widgets/Track",
+          "esri/Graphic"
+
+        ], function(
+            esriConfig,
+            Map,
+            MapView,
+            Locate,
+
+            Track,
+            Graphic
+
+        ) {
+
+        esriConfig.apiKey = "AAPK34f380ffec4547b095b02ca338ec9384MPuFgjZSuJij-FOFOYWDk1eFtHedxlsegkHhTRXeTWjVaTPUgkM4Cf8lKTpxcTEI";
+
+        const map = new Map({
+          basemap: "arcgis-navigation"
+        });
+
+        const view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-40, 28],
+          zoom: 2
+        });
+
+        const locate = new Locate({
+          view: view,
+          useHeadingEnabled: false,
+          goToOverride: function(view, options) {
+            options.target.scale = 1500;
+            return view.goTo(options.target);
+          }
+        });
+        view.ui.add(locate, "top-left");
+
+        const track = new Track({
+          view: view,
+          graphic: new Graphic({
+            symbol: {
+              type: "simple-marker",
+              size: "12px",
+              color: "green",
+              outline: {
+                color: "#efefef",
+                width: "1.5px"
+              }
+            }
+          }),
+          useHeadingEnabled: false
+        });
+        view.ui.add(track, "top-left");
+
+      });
+    </script>
+    
+
+  </head>
+  <body>
+    <form action="/work-page" method="post">
+      <p style="font-size: 16px;"><b>Enter Location:</b><input style="margin-left: 5px;" type="text" placeholder="Location" name="location"><input type="submit" value="Submit" class="sub"></p>
+      
+    </form>
+    <div id="viewDiv"></div>
+    
+     
+    <button class="open-button" onclick="openForm()">Chat</button>
+    <div class="chat-popup" id="myForm">
+        <div class="chat">
+            
+            <div class="chat-title">
+              <h1>Travel bot</h1>
+              <h2>chatbot</h2>
+              <figure class="avatar">
+                <img src="https://w7.pngwing.com/pngs/704/214/png-transparent-flight-aviation-travel-chatbot-internet-bot-flight-company-logo-grass.png" />
+              </figure>
+            </div>
+            <div class="messages" align="bottom">
+              <div class="messages-content"></div>
+            </div>
+            <div class="message-box">
+              <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+              <button type="submit" class="message-submit">Send</button>
+            
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </div>
+          </div>
+    </div>  
+  
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+      function openForm1() {
+        document.getElementById("myForm1").style.display = "block";
+      }
+      
+      function closeForm1() {
+        document.getElementById("myForm1").style.display = "none";
+      }
+
+      </script>
+      
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <script  src="/static/work_script.js"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+
+  </body>
+</html>
+<!-- partial -->
+  <script  src="static/work_script.js"></script>
+
+</body>
+</html>

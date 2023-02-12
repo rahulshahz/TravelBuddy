@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Carefree</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+  
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css"
+  />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"rel="stylesheet'><link rel="stylesheet" href="/static/home_style.css">
+<script src="https://kit.fontawesome.com/83e6709c5e.js" crossorigin="anonymous"></script> 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFyabNVDHz5BxpMXgxH6vb4MdJY9rY0z4&callback=initMap"></script>
+</head>
+<body>
+
+
+<div class="app">
+	
+
+	<div class="cardList">
+		<button class="cardList__btn btn btn--left">
+			<div class="icon hover-target">
+				<svg>
+					<use xlink:href="#arrow-left"></use>
+				</svg>
+			</div>
+		</button>
+
+		<div class="cards__wrapper">
+			<div class="card current--card">
+				<div class="card__image">
+					<img src="https://source.unsplash.com/m7K4KzL5aQ8" alt="" />
+				</div>
+			</div>
+
+			<div class="card next--card">
+				<div class="card__image">
+					<img src="https://images.pexels.com/photos/2375131/pexels-photo-2375131.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+				</div>
+			</div>
+
+			<div class="card previous--card">
+				<div class="card__image">
+					<img src="https://images.pexels.com/photos/1157255/pexels-photo-1157255.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+				</div>
+			</div>
+		</div>
+
+		<button class="cardList__btn btn btn--right">
+			<div class="icon hover-target">
+				<svg>
+					<use xlink:href="#arrow-right"></use>
+				</svg>
+			</div>
+		</button>
+	</div>
+
+	<div class="infoList">
+		<div class="info__wrapper">
+			<div class="info current--info">
+			
+				<h1 class="text name">LEISURE</h1>
+				
+				<div class="m">
+					<button class="button text">Attractions</button>
+					<button class="button text">Events</button>
+					<button class="button text">Concerts</button>
+					<button class="button text">Restaurants</button>
+					<button class="button text">Shopping Mall</button>
+					
+					
+					
+				</div>
+			
+			</div>
+
+			<div class="info next--info">
+				<h1 class="text name">HELPLINES</h1>
+				
+				<div class="m">
+					<button class="button text">Police Station</button>
+					<button class="button text">Hospital</button>
+					<button class="button text">Clinics</button>
+					<button class="button text">Directions</button>
+					<button class="button text">Emergency Services</button>
+					
+					
+				</div>
+			</div>
+
+			<div class="info previous--info">
+				<h1 class="text name">SERVICES</h1>
+				
+				<div class="m ">
+					<button class="button text">Airport</button>
+					<button class="button text">Bus Depots</button>
+					<button class="button text">Petrol Station</button>
+					<button class="button text">Banks</button>
+					<button class="button text">Hotels</button>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="app__bg">
+		<div class="app__bg__image current--image">
+			<img src="https://source.unsplash.com/m7K4KzL5aQ8" alt="" />
+		</div>
+		<div class="app__bg__image next--image">
+			<img src="https://images.pexels.com/photos/2375131/pexels-photo-2375131.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+		</div>
+		<div class="app__bg__image previous--image">
+			<img src="https://images.pexels.com/photos/1157255/pexels-photo-1157255.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+		</div>
+	</div>
+</div>
+
+
+
+<svg class="icons" style="display: none;">
+	<symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='328 112 184 256 328 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+	<symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='184 112 328 256 184 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+</svg>
+
+
+
+
+
+
+
+
+
+<div class='cursor' id="cursor"></div>
+<div class='cursor2' id="cursor2"></div>
+<div class='cursor3' id="cursor3"></div>
+
+<!-- <div class="support">
+	<a target="_blank"><i class="fab fa-instagram hover-target"></i></a>
+	<a target="_blank"><i class="fab fa-facebook hover-target"></i></a>
+	<a target="_blank"><i class="fab fa-youtube hover-target"></i></a>
+	<a target="_blank"><i class="fab fa-twitter hover-target"></i></a>
+	<a target="_blank"><i class="fab fa-dribbble hover-target"></i></a>
+	
+	
+
+</div> -->
+<div class="nav hover-target">
+		<button class="hello">TRAVEL BUDDY</button>
+		<a href="/work-page"><button id="btn1">GET STARTED<i class="fa fa-chevron-right" aria-hidden="true"></i></button></a>
+	
+</div>
+<!-- <div class="support1">
+	
+	
+	<ul class="menu">
+		<li class="hover-target"><p>HOME</p><div class="d"></div></li>
+		<li class="hover-target"><p style="background-color: black;padding:10px;color:white;border-radius: 10px;margin-top:-5px">GET STARTED</p></li>
+		<li class="hover-target"><p>DESCRIPTION<i class="fas fa-caret-down">
+			
+		</i>
+			</p><div class="d"></div></li>
+	</ul>
+	<div>
+	 <ul>
+		<li type="none"><i class="fa fa-bars fa-2x hover-target"></i>
+		</li>
+	</ul></div>  -->
+	
+
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+
+	(function($) { "use strict";
+		
+		
+	
+		document.getElementsByTagName("body")[0].addEventListener("mousemove", function(v) {
+			t.style.left = v.clientX + "px", 
+			t.style.top = v.clientY + "px", 
+			e.style.left = v.clientX + "px", 
+			e.style.top = v.clientY + "px", 
+			i.style.left = v.clientX + "px", 
+			i.style.top = v.clientY + "px"
+		});
+		var t = document.getElementById("cursor"),
+			e = document.getElementById("cursor2"),
+			i = document.getElementById("cursor3");
+		function n(t) {
+			e.classList.add("hover"), i.classList.add("hover")
+		}
+		function s(t) {
+			e.classList.remove("hover"), i.classList.remove("hover")
+		}
+		s();
+		for (var r = document.querySelectorAll(".hover-target"), a = r.length - 1; a >= 0; a--) {
+			o(r[a])
+		}
+		function o(t) {
+			t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
+		}	
+	})(jQuery); 
+</script>
+
+  <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script><script  src="/static/home_script.js"></script>
+
+</body>
+</html>
